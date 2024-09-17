@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import greeter_pb2 as greeter__pb2
+import proto.schema.greeter_pb2 as greeter__pb2
 
 GRPC_GENERATED_VERSION = '1.66.1'
 GRPC_VERSION = grpc.__version__
@@ -36,17 +36,12 @@ class GreeterStub(object):
             channel: A grpc.Channel.
         """
         self.SayHello = channel.unary_unary(
-                '/Greeter/SayHello',
-                request_serializer=greeter__pb2.HelloRequest.SerializeToString,
-                response_deserializer=greeter__pb2.HelloResponse.FromString,
-                _registered_method=True)
-        self.SayGoodbye = channel.unary_unary(
-                '/Greeter/SayGoodbye',
-                request_serializer=greeter__pb2.GoodbyeRequest.SerializeToString,
-                response_deserializer=greeter__pb2.GoodbyeResponse.FromString,
+                '/proto.schema.Greeter/SayHello',
+                request_serializer=greeter__pb2.GreetingRequest.SerializeToString,
+                response_deserializer=greeter__pb2.GreetingResponse.FromString,
                 _registered_method=True)
         self.GetGreetingHistory = channel.unary_unary(
-                '/Greeter/GetGreetingHistory',
+                '/proto.schema.Greeter/GetGreetingHistory',
                 request_serializer=greeter__pb2.GreetingHistoryRequest.SerializeToString,
                 response_deserializer=greeter__pb2.GreetingHistoryResponse.FromString,
                 _registered_method=True)
@@ -58,13 +53,6 @@ class GreeterServicer(object):
 
     def SayHello(self, request, context):
         """Sends a personalized greeting to the client based on the provided name and language preference.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SayGoodbye(self, request, context):
-        """Sends a farewell message based on the provided name and language preference.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -82,13 +70,8 @@ def add_GreeterServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SayHello': grpc.unary_unary_rpc_method_handler(
                     servicer.SayHello,
-                    request_deserializer=greeter__pb2.HelloRequest.FromString,
-                    response_serializer=greeter__pb2.HelloResponse.SerializeToString,
-            ),
-            'SayGoodbye': grpc.unary_unary_rpc_method_handler(
-                    servicer.SayGoodbye,
-                    request_deserializer=greeter__pb2.GoodbyeRequest.FromString,
-                    response_serializer=greeter__pb2.GoodbyeResponse.SerializeToString,
+                    request_deserializer=greeter__pb2.GreetingRequest.FromString,
+                    response_serializer=greeter__pb2.GreetingResponse.SerializeToString,
             ),
             'GetGreetingHistory': grpc.unary_unary_rpc_method_handler(
                     servicer.GetGreetingHistory,
@@ -97,9 +80,9 @@ def add_GreeterServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'Greeter', rpc_method_handlers)
+            'proto.schema.Greeter', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('Greeter', rpc_method_handlers)
+    server.add_registered_method_handlers('proto.schema.Greeter', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -121,36 +104,9 @@ class Greeter(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Greeter/SayHello',
-            greeter__pb2.HelloRequest.SerializeToString,
-            greeter__pb2.HelloResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def SayGoodbye(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/Greeter/SayGoodbye',
-            greeter__pb2.GoodbyeRequest.SerializeToString,
-            greeter__pb2.GoodbyeResponse.FromString,
+            '/proto.schema.Greeter/SayHello',
+            greeter__pb2.GreetingRequest.SerializeToString,
+            greeter__pb2.GreetingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -175,7 +131,7 @@ class Greeter(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Greeter/GetGreetingHistory',
+            '/proto.schema.Greeter/GetGreetingHistory',
             greeter__pb2.GreetingHistoryRequest.SerializeToString,
             greeter__pb2.GreetingHistoryResponse.FromString,
             options,

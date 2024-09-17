@@ -24,25 +24,21 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rgreeter.proto\">\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08language\x18\x02 \x01(\t\x12\x0e\n\x06\x66ormal\x18\x03 \x01(\x08\"3\n\rHelloResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x11\n\ttimestamp\x18\x02 \x01(\t\"@\n\x0eGoodbyeRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08language\x18\x02 \x01(\t\x12\x0e\n\x06\x66ormal\x18\x03 \x01(\x08\"5\n\x0fGoodbyeResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x11\n\ttimestamp\x18\x02 \x01(\t\"&\n\x16GreetingHistoryRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"?\n\x17GreetingHistoryResponse\x12\x10\n\x08messages\x18\x01 \x03(\t\x12\x12\n\ntimestamps\x18\x02 \x03(\t2\xb4\x01\n\x07Greeter\x12+\n\x08SayHello\x12\r.HelloRequest\x1a\x0e.HelloResponse\"\x00\x12\x31\n\nSayGoodbye\x12\x0f.GoodbyeRequest\x1a\x10.GoodbyeResponse\"\x00\x12I\n\x12GetGreetingHistory\x12\x17.GreetingHistoryRequest\x1a\x18.GreetingHistoryResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rgreeter.proto\x12\x0cproto.schema\"3\n\x0fGreetingRequest\x12\x12\n\nsalutation\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"6\n\x10GreetingResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x11\n\ttimestamp\x18\x02 \x01(\t\"&\n\x16GreetingHistoryRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\">\n\x17GreetingHistoryResponse\x12\x10\n\x08messages\x18\x01 \x03(\t\x12\x11\n\ttimestamp\x18\x02 \x03(\t2\xbb\x01\n\x07Greeter\x12K\n\x08SayHello\x12\x1d.proto.schema.GreetingRequest\x1a\x1e.proto.schema.GreetingResponse\"\x00\x12\x63\n\x12GetGreetingHistory\x12$.proto.schema.GreetingHistoryRequest\x1a%.proto.schema.GreetingHistoryResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'greeter_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_HELLOREQUEST']._serialized_start=17
-  _globals['_HELLOREQUEST']._serialized_end=79
-  _globals['_HELLORESPONSE']._serialized_start=81
-  _globals['_HELLORESPONSE']._serialized_end=132
-  _globals['_GOODBYEREQUEST']._serialized_start=134
-  _globals['_GOODBYEREQUEST']._serialized_end=198
-  _globals['_GOODBYERESPONSE']._serialized_start=200
-  _globals['_GOODBYERESPONSE']._serialized_end=253
-  _globals['_GREETINGHISTORYREQUEST']._serialized_start=255
-  _globals['_GREETINGHISTORYREQUEST']._serialized_end=293
-  _globals['_GREETINGHISTORYRESPONSE']._serialized_start=295
-  _globals['_GREETINGHISTORYRESPONSE']._serialized_end=358
-  _globals['_GREETER']._serialized_start=361
-  _globals['_GREETER']._serialized_end=541
+  _globals['_GREETINGREQUEST']._serialized_start=31
+  _globals['_GREETINGREQUEST']._serialized_end=82
+  _globals['_GREETINGRESPONSE']._serialized_start=84
+  _globals['_GREETINGRESPONSE']._serialized_end=138
+  _globals['_GREETINGHISTORYREQUEST']._serialized_start=140
+  _globals['_GREETINGHISTORYREQUEST']._serialized_end=178
+  _globals['_GREETINGHISTORYRESPONSE']._serialized_start=180
+  _globals['_GREETINGHISTORYRESPONSE']._serialized_end=242
+  _globals['_GREETER']._serialized_start=245
+  _globals['_GREETER']._serialized_end=432
 # @@protoc_insertion_point(module_scope)
