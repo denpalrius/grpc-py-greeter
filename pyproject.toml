@@ -1,0 +1,13 @@
+[tool.poetry]
+package-mode = false
+name = "grpc-py-greeter"
+version = "0.1.0"
+description = ""
+authors = ["Dennis Riungu <2971971+denpalrius@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+grpcio = "^1.66.1"
+grpcio-tools = "^1.66.1"
+
