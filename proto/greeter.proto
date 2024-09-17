@@ -1,70 +1,36 @@
 syntax = "proto3";
 
+package proto.schema;
+
 // The Greeter service offers personalized greeting services.
 service Greeter {
     // Sends a personalized greeting to the client based on the provided name and language preference.
-    rpc SayHello (HelloRequest) returns (HelloResponse) {}
-
-    // Sends a farewell message based on the provided name and language preference.
-    rpc SayGoodbye (GoodbyeRequest) returns (GoodbyeResponse) {}
+    rpc SayHello (GreetingRequest) returns (GreetingResponse) {}
 
     // Retrieves a summary of all greetings sent to a specific user.
     rpc GetGreetingHistory (GreetingHistoryRequest) returns (GreetingHistoryResponse) {}
 }
 
 // The HelloRequest message contains the input data for sending a greeting.
-message HelloRequest {
-    // The name of the person to greet.
-    string name = 1;
-
-    // The preferred language for the greeting (e.g., 'en' for English, 'es' for Spanish).
-    string language = 2;
-
-    // A flag to indicate whether the greeting should be formal or informal.
-    bool formal = 3;
+message GreetingRequest {
+    string salutation = 1;
+    string name = 2;
 }
 
 // The HelloResponse message contains the server's response to a greeting request.
-message HelloResponse {
-    // The personalized greeting message.
+message GreetingResponse {
     string message = 1;
-
-    // The timestamp of when the greeting was sent.
     string timestamp = 2;
 }
 
-// The GoodbyeRequest message contains the input data for sending a farewell message.
-message GoodbyeRequest {
-    // The name of the person to send the farewell message to.
-    string name = 1;
-
-    // The preferred language for the farewell (e.g., 'en' for English, 'es' for Spanish).
-    string language = 2;
-
-    // A flag to indicate whether the farewell should be formal or informal.
-    bool formal = 3;
-}
-
-// The GoodbyeResponse message contains the server's response to a farewell request.
-message GoodbyeResponse {
-    // The personalized farewell message.
-    string message = 1;
-
-    // The timestamp of when the farewell message was sent.
-    string timestamp = 2;
-}
 
 // The GreetingHistoryRequest message is used to request a user's greeting history.
 message GreetingHistoryRequest {
-    // The name of the person whose greeting history is being requested.
     string name = 1;
 }
 
 // The GreetingHistoryResponse message contains the response to a greeting history request.
 message GreetingHistoryResponse {
-    // A list of all previous greetings and farewells sent to the user.
     repeated string messages = 1;
-
-    // The timestamps of when the greetings were sent.
-    repeated string timestamps = 2;
+    repeated string timestamp = 2;
 }
